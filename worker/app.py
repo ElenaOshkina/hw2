@@ -9,3 +9,8 @@ def find_fib(n):
     return fib(n-1) + fib(n-2)
 
     return str(fib(n))
+
+
+@app.route('/'):
+def hello_world():
+	return 'hello world!'
