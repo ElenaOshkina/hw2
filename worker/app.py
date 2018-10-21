@@ -1,16 +1,13 @@
 from flask import Flask
 app = Flask(__name__)
 
-@app.route("/<int:n>")
-def find_fib(n):
-    def fib(n):
-        if n==1 or n==2:
-        return 1
-    return fib(n-1) + fib(n-2)
+@app.route("/")
+def fib():
+    def find_fib():
+        a = 0
+        b = 1
+        for _ in range(50):
+           a, b = b, a + b
+        return a
 
-    return str(fib(n))
-
-
-@app.route('/'):
-def hello_world():
-	return 'hello world!'
+    return str(find_fib())
