@@ -2,15 +2,10 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route("/<int:n>")
-def prime(n):
-    def find_primes(n):
-        result = []
-        for p in range(2, n+1):
-            for i in range(2, p):
-                if p % i == 0:
-                    break
-            else:
-                result.append(p)
-        return result
+def find_fib(n):
+    def fib(n):
+        if n==1 or n==2:
+        return 1
+    return fib(n-1) + fib(n-2)
 
-    return str(find_primes(n))
+    return str(fib(n))
